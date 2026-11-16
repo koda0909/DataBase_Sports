@@ -78,3 +78,17 @@ INSERT INTO courses (sports_id, course_name, level, class_days, start_time, capa
 VALUES (1, '수영 초급 새벽반', '초급', '월수금', '06:00', 20, 70000);
 INSERT INTO courses (sports_id, course_name, level, class_days, start_time, capacity, fee)
 VALUES (2, '헬스 자유이용', '자유', '매일', '06:00', 50, 50000);
+
+INSERT INTO courses (sports_id, course_name, level, class_days, start_time, capacity, fee)
+VALUES (30, '헬스 자유이용', '자유', '매일', '06:00', 50, 50000);
+
+-- 1:1 사물함 테이블
+CREATE TABLE lockers(
+    locker_no      INT      PRIMARY KEY,
+    member_id      INT      NOT NULL UNIQUE REFERENCES members(member_id) ON DELETE CASCADE,
+    asign_date     DATE     NOT NULL
+);
+
+INSERT INTO lockers VALUES (101, 1, '2026-11-01');
+
+INSERT INTO lockers VALUES (102, 3, '2026-11-01');
